@@ -6,8 +6,9 @@ function detectCollision(objects, point) {
             point.x <= x + width &&
             point.y >= y &&
             point.y <= y + height
-            )
+            ) {
             return objects[i];
+        }
     }
 }
     
@@ -26,6 +27,10 @@ const points = [
 ]
 
 points.forEach(point => {
-    detectCollision(myObjects, point) != undefined ? {x, y, width, height} = detectCollision(myObjects, point) : point;
-    console.log(`point (${point.x}, ${point.y}) will collide with object {x: ${x}, y: ${y}, width: ${width}, height: ${height}}`);
+    const ret = detectCollision(myObjects, point) != undefined ? {x, y, width, height} = detectCollision(myObjects, point) : null;
+    if (ret) {
+        console.log(`point (${point.x}, ${point.y}) will collide with object {x: ${x}, y: ${y}, width: ${width}, height: ${height}}`);
+    } else {
+        console.log(`point (${point.x}, ${point.y}) will not collide with any object`);
+    }
 });
