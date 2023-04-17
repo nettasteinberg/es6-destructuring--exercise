@@ -7,7 +7,7 @@ function detectCollision(objects, point) {
         point.y >= y &&
         point.y <= y + height
       )
-        return {x, y, width, height};
+        return objects[i];
     }
   }
   
