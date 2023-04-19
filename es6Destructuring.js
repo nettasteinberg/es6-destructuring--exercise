@@ -1,11 +1,12 @@
 function detectCollision(objects, point) {
     for (let i = 0; i < objects.length; i++) {
-        let {x, y, width, height} = objects[i];
+        let {x: ox, y: oy, width, height} = objects[i];
+        let {x: px, y: py} = point;
         if (
-            point.x >= x &&
-            point.x <= x + width &&
-            point.y >= y &&
-            point.y <= y + height
+            px >= ox &&
+            px <= ox + width &&
+            py >= oy &&
+            py <= oy + height
             ) {
             return objects[i];
         }
